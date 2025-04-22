@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "vite ",
-    "dev": "vite build",
-    "preview": "vite preview"
+    "dev": "vite",
+    "build": "vite",
+    "postinstall": "chmod -R 755 ./node_modules/.bin"  
   },
   "keywords": [],
   "author": "",
