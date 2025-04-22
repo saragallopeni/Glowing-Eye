@@ -1,0 +1,17 @@
+{
+  "name": "eye-project-with-three-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "three": "^0.175.0",
+    "vite": "^6.3.2"
+  }
+}

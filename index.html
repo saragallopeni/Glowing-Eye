@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <title>Glowing Eye 👁️</title>
+    <style>
+      body { margin: 0; padding: 0; overflow: hidden;
+      }
+      canvas { display: block; }
+      a{
+        text-decoration: none;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module" src="/src/main.js"></script>
+    <h1 style="position: absolute; color: white; top: 50vh; left: 50vw; font-family: Dosis; font-weight: 200; font-size: 30px;">Zoom out or in</h1>
+    <footer style="position: absolute; bottom: 10px; width: 100%; text-align: center; color: white; font-family: sans-serif;">
+      <p>created with 💙 by Sara Gallopeni · <a href="https://www.linkedin.com/in/sara-gallopeni-241a361a1/" >LinkedIn <i class="fa fa-linkedin-square"></i> · <a href="https://github.com/saragallopeni">Github <i class="fa fa-github"></i> </a> · 2025</a></p>
+    </footer>
+
+    <script>
+      setTimeout(() => {
+        const title = document.querySelector('h1');
+        title.style.transition = 'opacity 2s ease';
+        title.style.opacity = '0';
+      }, 1000); 
+    </script>
+  </body>
+</html>
