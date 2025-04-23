@@ -2,21 +2,42 @@ import * as Three from "three";
 import backgroundTexture from "/background.jpg";
 import eyeTexture from "/eye.jpg";
 import membraneImage from "/membrane.png";
-import nucleusImage from "/nucleus.jpg";
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import nucleusImage from "/back.jpg";
+import sunImage from "/sun.jpg";
+import boxImage from "/box.jpg";
+import colorImage from "/Color.png";
+import normalMap from "/NormalGL.png";
+import displacement from "/Displacement.png";
 
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { emissive, shadow } from "three/tsl";
+
+const loader = new Three.TextureLoader();
 
 const scene = new Three.Scene();
 const group = new Three.Group();
 
-const loader = new Three.TextureLoader();
+
+
+const col = loader.load(colorImage);
+const normap = loader.load(normalMap);
+const dis = loader.load(displacement);
+
+
+
+
 const background = loader.load(backgroundTexture);
 // background.mapping = Three.EquirectangularReflectionMapping;
 scene.background = background;
 
+const sun = loader.load(sunImage);
+sun.mapping = Three.EquirectangularReflectionMapping;
 
 const texture = loader.load(eyeTexture);
 texture.mapping = Three.EquirectangularReflectionMapping;
+
+const boxx = loader.load(boxImage);
+boxx.mapping = Three.EquirectangularReflectionMapping;
 
 const membrane = loader.load(membraneImage);
 membrane.mapping = Three.EquirectangularReflectionMapping;
@@ -110,29 +131,42 @@ secondIris.rotation.x = Math.PI / 2;
 secondIris.position.set(0,0,2.06);
 
 
-const nucleusForm = new Three.SphereGeometry( 0.90, 64, 64);
-const materialNucleus = new Three.MeshPhysicalMaterial({
+const nucleusForm = new Three.SphereGeometry( 1.30, 64, 64);
+const materialNucleus = new Three.MeshStandardMaterial({
   map: nucleusTexture,
   side: Three.DoubleSide,
   color:'white',
   metalness: 0,
   roughness: 0,
-  transmission: 1, 
-  thickness: 0.1,  
+  transmission: 0, 
+  thickness: 0.2,  
   ior: 1.5,  
   opacity: 1,      
 })
 const nucleus = new Three.Mesh(nucleusForm, materialNucleus);
 group.add(nucleus);
 
-const adngeo = new Three.TorusKnotGeometry( 0.40, 0.08, 50, 6, 2, 3 ); 
-const adnmaterial = new Three.MeshBasicMaterial( { color: 'lightyellow', wireframe: true } ); 
+
+
+
+const adngeo = new Three.SphereGeometry(1.25, 124, 124 ); 
+const adnmaterial = new Three.MeshPhysicalMaterial( { 
+  color: col, 
+  map: col,
+  normalMap: normap,
+  displacementBias: dis, 
+  displacementScale: 0.1,
+  side: Three.DoubleSide,
+  opacity: 1,
+  metalness: 0,
+  roughness: 0.2,
+  clearcoat: 1,
+  clearcoatRoughness: 0,
+  ior: 1.5,  
+  thickness: 0.2,
+ }  ); 
 const torusKnot = new Three.Mesh( adngeo, adnmaterial ); 
 group.add( torusKnot );
-
-
-
-
 
 
 
@@ -157,12 +191,19 @@ const light3 = new Three. SpotLight('white', 30);
 light3.position.set(0, 2, 3);
 scene.add(light3);
 
-// const light4 = new Three.DirectionalLight('white', 1);
-// light4.position.set(0, 2, 4);
-// scene.add(light4);
+
+
+const light4 = new Three.PointLight('white',5);
+light4.position.set(0,0, 0);
+scene.add(light4);
+
+
 
 const ambientLight = new Three.AmbientLight('white', 0.2);
 scene.add(ambientLight);
+
+
+
 
 
 const controls = new OrbitControls(camera, renderer.domElement);
