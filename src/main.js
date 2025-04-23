@@ -172,7 +172,7 @@ group.add( torusKnot );
 
 const irismovement = new Three.Group();
 irismovement.add(iris);
-scene.add(irismovement);
+group.add(irismovement);
 
 
 group.add(sphere, sphere2, irismovement);
@@ -209,7 +209,8 @@ scene.add(ambientLight);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.maxPolarAngle = Math.PI; 
 controls.minPolarAngle = 0;
-
+controls.rotateSpeed = 0.4;
+controls.zoomSpeed = 0.6;
 
 function animate() {
   requestAnimationFrame(animate);
@@ -220,5 +221,11 @@ function animate() {
  group.rotation.z += 0.005;
  renderer.render(scene, camera);
 }
+
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
 
 animate();
