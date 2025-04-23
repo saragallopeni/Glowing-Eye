@@ -149,7 +149,7 @@ group.add(nucleus);
 
 
 
-const adngeo = new Three.SphereGeometry(0.90, 124, 124 ); 
+const adngeo = new Three.SphereGeometry(0.97, 124, 124 ); 
 const adnmaterial = new Three.MeshPhysicalMaterial( { 
   color: col, 
   map: col,
