@@ -214,10 +214,10 @@ controls.minPolarAngle = 0;
 function animate() {
   requestAnimationFrame(animate);
    controls.update();
- nucleus.rotation.x += 0.01;
- nucleus.rotation.y += 0.01;
- nucleus.rotation.z += 0.01;  
- group.rotation.z += 0.01;
+ nucleus.rotation.x += 0.005;
+ nucleus.rotation.y += 0.005;
+ nucleus.rotation.z += 0.005;  
+ group.rotation.z += 0.005;
  renderer.render(scene, camera);
 }
 
