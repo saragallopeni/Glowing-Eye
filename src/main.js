@@ -131,7 +131,7 @@ secondIris.rotation.x = Math.PI / 2;
 secondIris.position.set(0,0,2.06);
 
 
-const nucleusForm = new Three.SphereGeometry( 1.30, 64, 64);
+const nucleusForm = new Three.SphereGeometry( 1, 64, 64);
 const materialNucleus = new Three.MeshStandardMaterial({
   map: nucleusTexture,
   side: Three.DoubleSide,
@@ -149,7 +149,7 @@ group.add(nucleus);
 
 
 
-const adngeo = new Three.SphereGeometry(1.25, 124, 124 ); 
+const adngeo = new Three.SphereGeometry(0.90, 124, 124 ); 
 const adnmaterial = new Three.MeshPhysicalMaterial( { 
   color: col, 
   map: col,
