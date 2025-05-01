@@ -31,3 +31,11 @@ git clone https://github.com/saragallopeni/Glowing-Eye.git
 
 Check out the live demo of the project here: [Live Demo](https://glowing-eye-nine.vercel.app/)
 
+## Navigate into the project directory:
+cd dimension-seven
+## Install dependencies:
+npm install
+## Start the application:
+npm start
+Visit http://localhost:3000 in your browser to view the scene.
+
