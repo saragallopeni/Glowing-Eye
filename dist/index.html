@@ -8,15 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
     <title>Glowing Eye 👁️</title>
     <style>
-      body { margin: 0; padding: 0; overflow: hidden;
+      body { margin: 0; padding: 0; overflow: hidden; width: 100vw; height: 100dvh;
       }
-      canvas { display: block; }
+      canvas { display: block; width: 100vw; height: 100dvh;
+       }
       a{
         text-decoration: none;
         color: white;
       }
     </style>
-    <script type="module" crossorigin src="/assets/index-CVhWEdMI.js"></script>
+    <script type="module" crossorigin src="/assets/index-DRn3pL4f.js"></script>
   </head>
   <body>
     <h1 style="position: absolute; color: white; top: 50vh; left: 50vw; font-family: Dosis; font-weight: 200; font-size: 30px;">Zoom out or in</h1>
@@ -29,7 +30,7 @@
         const title = document.querySelector('h1');
         title.style.transition = 'opacity 2s ease';
         title.style.opacity = '0';
-      }, 1000); 
+      }, 2000); 
     </script>
   </body>
 </html>

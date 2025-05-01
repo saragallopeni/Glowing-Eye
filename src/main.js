@@ -10,7 +10,6 @@ import normalMap from "/NormalGL.png";
 import displacement from "/Displacement.png";
 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { emissive, shadow } from "three/tsl";
 
 const loader = new Three.TextureLoader();
 
